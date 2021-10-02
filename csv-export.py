@@ -8,6 +8,8 @@ import argparse
 import ast
 from dotenv import load_dotenv, find_dotenv
 import os
+import re
+import json
 
 logged_in = False
 
@@ -26,7 +28,7 @@ parser.add_argument(
 parser.add_argument(
     '--profit', action='store_true', help='calculate profit for each sale')
 parser.add_argument(
-    '--dividends', action='store_true', help='export dividend payments')
+    '--dividends', default=True, action='store_true', help='export dividend payments')
 args = parser.parse_args()
 username = args.username
 password = args.password
@@ -126,7 +128,11 @@ for row in fields:
         if (idx > 0):
             csv += ","
         try:
-            csv += str(fields[row][key])
+            value = fields[row][key]
+            if 'amount' in value:
+                json.loads(value)
+                value = value['amount']
+            csv += str(value)
         except:
             csv += ""
 
