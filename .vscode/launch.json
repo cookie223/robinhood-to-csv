@@ -1,0 +1,15 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python csv-export",
+            "type": "python",
+            "request": "launch",
+            "program": "python3 csv-export.py --username g.cookie223@gmail.com --password ZJ2PPqQ6QY8bXgK --device_token cc424eb7-68cc-4e0c-8e96-086c202e73af",
+            "console": "integratedTerminal"
+        }
+    ]
+}
